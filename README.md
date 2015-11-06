@@ -1,5 +1,9 @@
 # docker
 
+## This is not the container you are looking for
+
+All the containers have been created for a very specific purpose (screenshots). They embed a sample project to be analysed, which is probably something you do not need. The Official SonarQube docker is more likely the docker container you need.
+
 ## sonar-1.5
 
 This image is intended for simple screenshots and testing of SonarQube legacy version 1.5.1 (released Jan. 9 2009).
