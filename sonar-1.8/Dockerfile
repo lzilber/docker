@@ -10,12 +10,12 @@ RUN apt-get update && apt-get install -y \
 # Fetch a maven project in /tmp
 WORKDIR /tmp
 RUN set -x \
-	&& wget http://archive.apache.org/dist/commons/logging/source/commons-logging-1.2-src.zip \
-        && unzip ./commons-logging-1.2-src.zip \
-        && rm ./commons-logging-1.2-src.zip 
+	&& wget http://archive.apache.org/dist/commons/logging/source/commons-logging-1.1.1-src.zip \
+        && unzip ./commons-logging-1.1.1-src.zip \
+        && rm ./commons-logging-1.1.1-src.zip 
 
 # Set the versions and paths
-ENV SONAR_VERSION=1.8 MAVEN_VERSION=3.0.4 
+ENV SONAR_VERSION=1.8 MAVEN_VERSION=2.2.1 
 ENV MAVEN_HOME=/opt/apache-maven-${MAVEN_VERSION} SONAR_HOME=/opt/sonar-${SONAR_VERSION}
 
 # Install sonar and maven in /opt
@@ -24,7 +24,7 @@ RUN set -x \
 	&& wget http://downloads.sonarsource.com/sonarqube/sonar-${SONAR_VERSION}.zip \
 	&& unzip ./sonar-${SONAR_VERSION}.zip \
 	&& rm ./sonar-${SONAR_VERSION}.zip \
-	&& wget http://archive.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.zip \
+    && wget http://archive.apache.org/dist/maven/binaries/apache-maven-${MAVEN_VERSION}-bin.zip \
 	&& unzip ./apache-maven-${MAVEN_VERSION}-bin.zip \
 	&& rm ./apache-maven-${MAVEN_VERSION}-bin.zip
 
@@ -42,15 +42,10 @@ WORKDIR ${SONAR_HOME}
 CMD ["./bin/linux-x86-64/sonar.sh","start"]
 
 # Next we should setup the sonar database and run the maven analysis with the sonar plugin
-# NOTE : the sonar maven plugin requires java 7 starting from version 2.7, hence we use 2.6
+# NOTE : still using maven 2
 # cd /tmp
 # wget http://localhost:9000/setup/setup_database
-# cd commons-logging-1.2-src
+# cd commons-logging-1.1.1-src
 # $MAVEN_HOME/bin/mvn clean install
-# $MAVEN_HOME/bin/mvn org.codehaus.sonar:sonar-maven-plugin:1.6:sonar => Sonar plugin (1.6) and server (5.1) version do not match ?!?
-# $MAVEN_HOME/bin/mvn org.codehaus.sonar:sonar-maven-plugin:2.6:sonar => type incompatibility !?!
+# $MAVEN_HOME/bin/mvn org.codehaus.sonar:sonar-maven-plugin:1.8:sonar => OK
 
-
-# Testing the Sonar Runner
-# wget http://repo1.maven.org/maven2/org/codehaus/sonar/runner/sonar-runner-dist/2.1/sonar-runner-dist-2.1.zip
-# Sonar 1.8 is not supported. Please upgrade Sonar to version 2.11 or more.
