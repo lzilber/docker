@@ -1,9 +1,10 @@
 # docker
 
+![alt text](https://raw.githubusercontent.com/lzilber/docker/master/obiwan-hand.png "Obiwan's gesture")
+
 ## This is not the container you are looking for
 
 All the containers have been created for a very specific purpose (screenshots). They embed a sample project to be analysed, which is probably something you do not need. The Official SonarQube docker is more likely the docker container you need.
-![alt text](https://raw.githubusercontent.com/lzilber/docker/master/obiwan-hand.png "Obiwan's gesture")
 
 ## sonar-1.5
 
