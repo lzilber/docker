@@ -26,7 +26,7 @@ RUN set -x \
 	&& unzip ./apache-maven-${MAVEN_VERSION}-bin.zip \
 	&& rm ./apache-maven-${MAVEN_VERSION}-bin.zip
 
-ENV SONAR_VERSION=2.3.1 
+ENV SONAR_VERSION=2.4.1 
 ENV SONAR_HOME=/opt/sonar-${SONAR_VERSION}
 RUN set -x \
 	&& wget http://downloads.sonarsource.com/sonarqube/sonar-${SONAR_VERSION}.zip \
