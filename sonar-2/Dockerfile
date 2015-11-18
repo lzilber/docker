@@ -39,7 +39,7 @@ WORKDIR /opt
 ENV SONAR_VERSION=4.0
 ENV SONAR_HOME=/opt/sonar-${SONAR_VERSION}
 RUN set -x \
-	&& wget http://downloads.sonarsource.com/sonarqube/sonar-${SONAR_VERSION}.zip \
+	&& wget http://downloads.sonarsource.com/sonarqube/sonarqube-${SONAR_VERSION}.zip \
 	&& unzip ./sonar-${SONAR_VERSION}.zip \
 	&& rm ./sonar-${SONAR_VERSION}.zip
 
