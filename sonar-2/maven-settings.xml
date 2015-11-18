@@ -42,9 +42,8 @@ under the License.
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <!-- derby -->
-                <sonar.jdbc.url>jdbc:derby://localhost:1527/sonar</sonar.jdbc.url>
-                <sonar.jdbc.driver>org.apache.derby.jdbc.ClientDriver</sonar.jdbc.driver>
+                <!-- h2 -->
+                <sonar.jdbc.url>jdbc:h2:tcp://localhost:9092/sonar</sonar.jdbc.url>
                 <sonar.jdbc.username>sonar</sonar.jdbc.username>
                 <sonar.jdbc.password>sonar</sonar.jdbc.password>
             </properties>
