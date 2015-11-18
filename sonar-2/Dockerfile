@@ -37,11 +37,11 @@ RUN $MAVEN_HOME/bin/mvn clean install
 # Install sonar in /opt
 WORKDIR /opt
 ENV SONAR_VERSION=4.0
-ENV SONAR_HOME=/opt/sonar-${SONAR_VERSION}
+ENV SONAR_HOME=/opt/sonarqube-${SONAR_VERSION}
 RUN set -x \
 	&& wget http://downloads.sonarsource.com/sonarqube/sonarqube-${SONAR_VERSION}.zip \
-	&& unzip ./sonar-${SONAR_VERSION}.zip \
-	&& rm ./sonar-${SONAR_VERSION}.zip
+	&& unzip ./sonarqube-${SONAR_VERSION}.zip \
+	&& rm ./sonarqube-${SONAR_VERSION}.zip
 
 # Http port
 EXPOSE 9000
