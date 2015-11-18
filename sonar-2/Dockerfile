@@ -36,7 +36,7 @@ RUN $MAVEN_HOME/bin/mvn clean install
 
 # Install sonar in /opt
 WORKDIR /opt
-ENV SONAR_VERSION=3.5.1
+ENV SONAR_VERSION=3.6.3
 ENV SONAR_HOME=/opt/sonar-${SONAR_VERSION}
 RUN set -x \
 	&& wget http://downloads.sonarsource.com/sonarqube/sonar-${SONAR_VERSION}.zip \
