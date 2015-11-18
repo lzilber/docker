@@ -19,13 +19,23 @@ ENV MAVEN_VERSION=2.2.1
 ENV MAVEN_HOME=/opt/apache-maven-${MAVEN_VERSION}
 ENV JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64/
 
-# Install sonar and maven in /opt
+# Install maven in /opt
 WORKDIR /opt
 RUN set -x \
     && wget http://archive.apache.org/dist/maven/binaries/apache-maven-${MAVEN_VERSION}-bin.zip \
 	&& unzip ./apache-maven-${MAVEN_VERSION}-bin.zip \
 	&& rm ./apache-maven-${MAVEN_VERSION}-bin.zip
 
+# Update maven settings with the sonar profile
+COPY maven-settings.xml /opt/apache-maven-${MAVEN_VERSION}/conf/settings.xml
+
+# Prepare the maven analysis
+# NOTE : still using maven 2
+WORKDIR /tmp/commons-logging-1.1.1-src
+RUN $MAVEN_HOME/bin/mvn clean install
+
+# Install sonar in /opt
+WORKDIR /opt
 ENV SONAR_VERSION=2.13.1 
 ENV SONAR_HOME=/opt/sonar-${SONAR_VERSION}
 RUN set -x \
@@ -33,19 +43,11 @@ RUN set -x \
 	&& unzip ./sonar-${SONAR_VERSION}.zip \
 	&& rm ./sonar-${SONAR_VERSION}.zip
 
-# Update maven settings with the sonar profile
-COPY maven-settings.xml /opt/apache-maven-${MAVEN_VERSION}/conf/settings.xml
-
 # Http port
 EXPOSE 9000
 
 # Derby Database port
 EXPOSE 1527
-
-# Prepare the maven analysis
-# NOTE : still using maven 2
-WORKDIR /tmp/commons-logging-1.1.1-src
-RUN $MAVEN_HOME/bin/mvn clean install
 
 # Start sonar 
 WORKDIR ${SONAR_HOME}
