@@ -1,4 +1,4 @@
-# docker
+# docker (SonarQube docker images)
 
 ![alt text](https://raw.githubusercontent.com/lzilber/docker/master/obiwan-hand.png "Obiwan's gesture")
 
@@ -10,12 +10,10 @@ All the containers have been created for a very specific purpose (screenshots). 
 
 Used to build images of SonarQube version 5.x (starting at 5.0.1 released Feb. 24 2015).
 
-Setup maven 3 and a "maven 3-compatible" project commons-logging-X.X.
-
-| Component  | Version |
-| ------------- | ------------- |
+| Component | Version |
+| --------- | ------- |
 | Java  | 7  |
-| Maven  | 3  |
+| Maven  | 3.3.3  |
 
 ## sonar-2
 
@@ -23,10 +21,10 @@ Used to build images of SonarQube legacy version 2.x to 4.x (including LTS 4.5.6
 
 Setup maven 2 and a "maven 2-compatible" project commons-logging-1.1.1.
 
-| Component  | Version |
-| ------------- | ------------- |
+| Component | Version |
+| --------- | ------- |
 | Java  | 6  |
-| Maven  | 2  |
+| Maven  | 2.2.1  |
 
 
 ## sonar-1.5
