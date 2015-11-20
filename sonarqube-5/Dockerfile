@@ -26,9 +26,6 @@ RUN set -x \
 	&& unzip ./apache-maven-${MAVEN_VERSION}-bin.zip \
 	&& rm ./apache-maven-${MAVEN_VERSION}-bin.zip
 
-# Update maven settings with the sonar profile
-#COPY maven-settings.xml /opt/apache-maven-${MAVEN_VERSION}/conf/settings.xml
-
 # Prepare the maven analysis
 WORKDIR /tmp/commons-logging-1.1.1-src
 RUN $MAVEN_HOME/bin/mvn clean install
