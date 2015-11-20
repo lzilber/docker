@@ -35,11 +35,13 @@ WORKDIR /tmp/commons-logging-1.1.1-src
 RUN $MAVEN_HOME/bin/mvn clean install
 
 # Install sonar in /opt
+# https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-4.5.6.zip
+# http://downloads.sonarsource.com/sonarqube/sonarqube-5.0.1.zip
 WORKDIR /opt
-ENV SONAR_VERSION=4.4.1
+ENV SONAR_VERSION=4.5.6
 ENV SONAR_HOME=/opt/sonarqube-${SONAR_VERSION}
 RUN set -x \
-	&& wget http://downloads.sonarsource.com/sonarqube/sonarqube-${SONAR_VERSION}.zip \
+	&& wget https://sonarsource.bintray.com/Distribution/sonarqube/sonarqube-${SONAR_VERSION}.zip \
 	&& unzip ./sonarqube-${SONAR_VERSION}.zip \
 	&& rm ./sonarqube-${SONAR_VERSION}.zip
 
