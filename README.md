@@ -6,9 +6,32 @@
 
 All the containers have been created for a very specific purpose (screenshots). They embed a sample project to be analysed, which is probably something you do not need. The Official SonarQube docker is more likely the docker container you need.
 
+## sonarqube-5
+
+Used to build images of SonarQube version 5.x (starting at 5.0.1 released Feb. 24 2015).
+
+Setup maven 3 and a "maven 3-compatible" project commons-logging-X.X.
+
+| Component  | Version |
+| ------------- | ------------- |
+| Java  | 7  |
+| Maven  | 3  |
+
+## sonar-2
+
+Used to build images of SonarQube legacy version 2.x to 4.x (including LTS 4.5.6).
+
+Setup maven 2 and a "maven 2-compatible" project commons-logging-1.1.1.
+
+| Component  | Version |
+| ------------- | ------------- |
+| Java  | 6  |
+| Maven  | 2  |
+
+
 ## sonar-1.5
 
-This image is intended for simple screenshots and testing of SonarQube legacy version 1.5.1 (released Jan. 9 2009).
+Used to build an image intended for simple screenshots and testing of SonarQube legacy version 1.5.1 (released Jan. 9 2009).
 
 Based on a Java 5 image (Ubuntu 14.04, see lwis/java5), this image provides :
  * sonar 1.5.1 with the default Derby database.
@@ -21,7 +44,7 @@ Usage notes:
 
 ## sonar-2.0
 
-Image to test SonarQube legacy version 2.0.1 (released Mar. 10, 2010).
+Used to build an image to test SonarQube legacy version 2.0.1 (released Mar. 10, 2010).
 
 Based on a Java 6 image (OpenJDK 6), this image provides :
  * sonar 2.0.1 with the default Derby database.
