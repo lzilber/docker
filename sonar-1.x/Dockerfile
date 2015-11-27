@@ -1,10 +1,11 @@
-# Use a Debian (Ubuntu 14.04) distribution with jdk 1.5
-FROM lwis/java5
+# Use an official java image with OpenJDK 6
+FROM java:6
 
 MAINTAINER lzilber
 
-# Required packages : unzip
-RUN apt-get install unzip
+# sonar.sh uses the 'ps' command
+RUN apt-get update && apt-get install -y \
+    procps
 
 # Fetch a maven project in /tmp
 WORKDIR /tmp
@@ -16,7 +17,7 @@ RUN set -x \
 # Set the versions and paths
 ENV MAVEN_VERSION=2.2.1 
 ENV MAVEN_HOME=/opt/apache-maven-${MAVEN_VERSION}
-#ENV JAVA_HOME=/jdk1.5.0_22
+ENV JAVA_HOME=/usr/lib/jvm/java-6-openjdk-amd64/
 
 # Install sonar and maven in /opt
 WORKDIR /opt
@@ -25,7 +26,7 @@ RUN set -x \
 	&& unzip ./apache-maven-${MAVEN_VERSION}-bin.zip \
 	&& rm ./apache-maven-${MAVEN_VERSION}-bin.zip
 
-ENV SONAR_VERSION=1.5.1
+ENV SONAR_VERSION=1.6
 ENV SONAR_HOME=/opt/sonar-${SONAR_VERSION}
 RUN set -x \
 	&& wget http://downloads.sonarsource.com/sonarqube/sonar-${SONAR_VERSION}.zip \
@@ -53,4 +54,4 @@ CMD ["./bin/linux-x86-64/sonar.sh","start"]
 # Next we should run the maven analysis
 # cd /tmp
 # cd commons-logging-1.1.1-src
-# $MAVEN_HOME/bin/mvn org.codehaus.sonar:sonar-maven-plugin:1.5.1:sonar
+# $MAVEN_HOME/bin/mvn org.codehaus.sonar:sonar-maven-plugin:1.6:sonar
