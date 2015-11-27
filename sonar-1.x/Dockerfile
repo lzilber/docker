@@ -26,7 +26,7 @@ RUN set -x \
 	&& unzip ./apache-maven-${MAVEN_VERSION}-bin.zip \
 	&& rm ./apache-maven-${MAVEN_VERSION}-bin.zip
 
-ENV SONAR_VERSION=1.7
+ENV SONAR_VERSION=1.8
 ENV SONAR_HOME=/opt/sonar-${SONAR_VERSION}
 RUN set -x \
 	&& wget http://downloads.sonarsource.com/sonarqube/sonar-${SONAR_VERSION}.zip \
@@ -53,4 +53,4 @@ CMD ["./bin/linux-x86-64/sonar.sh","start"]
 
 # Next we should run the maven analysis
 # cd /tmp/commons-logging-1.1.1-src
-# $MAVEN_HOME/bin/mvn org.codehaus.sonar:sonar-maven-plugin:1.7:sonar
+# $MAVEN_HOME/bin/mvn sonar:sonar
