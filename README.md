@@ -26,10 +26,16 @@ Setup maven 2 and a "maven 2-compatible" project commons-logging-1.1.1.
 | Java  | 6  |
 | Maven  | 2.2.1  |
 
+## sonar-1.x
 
-## sonar-1.5
+Used to build images of SonarQube legacy version 1.5.1 (released Jan. 9 2009) to 1.14 .
 
-Used to build an image intended for simple screenshots and testing of SonarQube legacy version 1.5.1 (released Jan. 9 2009).
+| Component | Version |
+| --------- | ------- |
+| Java  | 6 (except for 1.5.1 see below)  |
+| Maven  | 2.2.1  |
+
+### version 1.5.1
 
 Based on a Java 5 image (Ubuntu 14.04, see lwis/java5), this image provides :
  * sonar 1.5.1 with the default Derby database.
