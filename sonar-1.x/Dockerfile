@@ -26,7 +26,7 @@ RUN set -x \
 	&& unzip ./apache-maven-${MAVEN_VERSION}-bin.zip \
 	&& rm ./apache-maven-${MAVEN_VERSION}-bin.zip
 
-ENV SONAR_VERSION=1.9.2
+ENV SONAR_VERSION=1.11.1
 ENV SONAR_HOME=/opt/sonar-${SONAR_VERSION}
 RUN set -x \
 	&& wget http://downloads.sonarsource.com/sonarqube/sonar-${SONAR_VERSION}.zip \
@@ -43,7 +43,6 @@ EXPOSE 9000
 EXPOSE 1527
 
 # Prepare the maven analysis
-# NOTE : still using maven 2
 WORKDIR /tmp/commons-logging-1.1.1-src
 RUN $MAVEN_HOME/bin/mvn clean install
 
