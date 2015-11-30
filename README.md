@@ -4,7 +4,7 @@
 
 ## This is not the container you are looking for
 
-All the containers have been created for a very specific purpose (screenshots). They embed a sample project to be analysed, which is probably something you do not need. The ![Official SonarQube docker](https://hub.docker.com/_/sonarqube/) is more likely the docker container you need.
+All the containers have been created for a very specific purpose (screenshots). They embed a sample project to be analysed, which is probably something you do not need. The [Official SonarQube docker](https://hub.docker.com/_/sonarqube/) is more likely the docker container you need.
 
 ## sonarqube-5
 
