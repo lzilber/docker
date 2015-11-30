@@ -10,6 +10,8 @@ All the containers have been created for a very specific purpose (screenshots). 
 
 Used to build images of SonarQube version 5.x (starting at 5.0.1 released Feb. 24 2015).
 
+Note: Analysis for 5.0 and 5.1 requires the option -Dsonar.scm.disabled=True
+
 | Component | Version |
 | --------- | ------- |
 | Java  | 7  |
